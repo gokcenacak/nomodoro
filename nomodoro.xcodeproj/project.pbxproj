@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D32BA3892B6D6B4000CDB911 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BA3882B6D6B4000CDB911 /* MainView.swift */; };
+		D32BA38B2B6D6C8F00CDB911 /* TimerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BA38A2B6D6C8F00CDB911 /* TimerPage.swift */; };
+		D32BA38F2B6D78A600CDB911 /* GIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BA38E2B6D78A600CDB911 /* GIFImage.swift */; };
+		D32BA3962B6D79B500CDB911 /* hedgehog_pizza_sauce.gif in Resources */ = {isa = PBXBuildFile; fileRef = D32BA3902B6D79B500CDB911 /* hedgehog_pizza_sauce.gif */; };
+		D32BA3972B6D79B500CDB911 /* hedgehog_pizza_cooking.gif in Resources */ = {isa = PBXBuildFile; fileRef = D32BA3912B6D79B500CDB911 /* hedgehog_pizza_cooking.gif */; };
+		D32BA3982B6D79B500CDB911 /* hedgehog_pizza_eating.gif in Resources */ = {isa = PBXBuildFile; fileRef = D32BA3922B6D79B500CDB911 /* hedgehog_pizza_eating.gif */; };
+		D32BA3992B6D79B500CDB911 /* hedgehog_pizza_dough_roll.gif in Resources */ = {isa = PBXBuildFile; fileRef = D32BA3932B6D79B500CDB911 /* hedgehog_pizza_dough_roll.gif */; };
+		D32BA39A2B6D79B500CDB911 /* hedgehog_pizza_dough.gif in Resources */ = {isa = PBXBuildFile; fileRef = D32BA3942B6D79B500CDB911 /* hedgehog_pizza_dough.gif */; };
+		D32BA39B2B6D79B500CDB911 /* hedgehog_pizza_ingredients.gif in Resources */ = {isa = PBXBuildFile; fileRef = D32BA3952B6D79B500CDB911 /* hedgehog_pizza_ingredients.gif */; };
+		D36BF8FC2B6F904000A753DA /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36BF8FB2B6F904000A753DA /* TimerView.swift */; };
+		D36BF8FE2B6FA0EC00A753DA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36BF8FD2B6FA0EC00A753DA /* TimerViewModel.swift */; };
+		D36BF9002B6FE8E400A753DA /* CircularSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36BF8FF2B6FE8E400A753DA /* CircularSliderView.swift */; };
 		D3953B5F2B6D368A00D15B7B /* nomodoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953B5E2B6D368A00D15B7B /* nomodoroApp.swift */; };
 		D3953B612B6D368A00D15B7B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953B602B6D368A00D15B7B /* ContentView.swift */; };
 		D3953B632B6D368F00D15B7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3953B622B6D368F00D15B7B /* Assets.xcassets */; };
@@ -14,6 +26,30 @@
 		D3953B702B6D368F00D15B7B /* nomodoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953B6F2B6D368F00D15B7B /* nomodoroTests.swift */; };
 		D3953B7A2B6D368F00D15B7B /* nomodoroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953B792B6D368F00D15B7B /* nomodoroUITests.swift */; };
 		D3953B7C2B6D368F00D15B7B /* nomodoroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953B7B2B6D368F00D15B7B /* nomodoroUITestsLaunchTests.swift */; };
+		D3953B892B6D42EA00D15B7B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953B882B6D42EA00D15B7B /* SplashView.swift */; };
+		D3953BD02B6D4EBD00D15B7B /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC42B6D494900D15B7B /* Montserrat-ExtraLightItalic.ttf */; };
+		D3953BD12B6D4EBD00D15B7B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC62B6D494900D15B7B /* Montserrat-Medium.ttf */; };
+		D3953BD22B6D4EBD00D15B7B /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BBE2B6D494800D15B7B /* Montserrat-ExtraLight.ttf */; };
+		D3953BD32B6D4EBD00D15B7B /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC82B6D494900D15B7B /* Montserrat-ExtraBold.ttf */; };
+		D3953BD42B6D4EBD00D15B7B /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BBF2B6D494900D15B7B /* Montserrat-Regular.ttf */; };
+		D3953BD52B6D4EBD00D15B7B /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC22B6D494900D15B7B /* Montserrat-Light.ttf */; };
+		D3953BD62B6D4EBD00D15B7B /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BCD2B6D494900D15B7B /* Montserrat-Thin.ttf */; };
+		D3953BD72B6D4EBD00D15B7B /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC02B6D494900D15B7B /* Montserrat-MediumItalic.ttf */; };
+		D3953BD82B6D4EBD00D15B7B /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BCA2B6D494900D15B7B /* Montserrat-SemiBold.ttf */; };
+		D3953BD92B6D4EBD00D15B7B /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC52B6D494900D15B7B /* Montserrat-Bold.ttf */; };
+		D3953BDA2B6D4EBD00D15B7B /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC72B6D494900D15B7B /* Montserrat-BoldItalic.ttf */; };
+		D3953BDB2B6D4EBD00D15B7B /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BCE2B6D494900D15B7B /* Montserrat-BlackItalic.ttf */; };
+		D3953BDC2B6D4EBD00D15B7B /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BCB2B6D494900D15B7B /* Montserrat-ExtraBoldItalic.ttf */; };
+		D3953BDD2B6D4EBD00D15B7B /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC12B6D494900D15B7B /* Montserrat-LightItalic.ttf */; };
+		D3953BDE2B6D4EBD00D15B7B /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC32B6D494900D15B7B /* Montserrat-ThinItalic.ttf */; };
+		D3953BDF2B6D4EBD00D15B7B /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC92B6D494900D15B7B /* Montserrat-Black.ttf */; };
+		D3953BE02B6D4EBD00D15B7B /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BCF2B6D494900D15B7B /* Montserrat-Italic.ttf */; };
+		D3953BE12B6D4EBD00D15B7B /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BCC2B6D494900D15B7B /* Montserrat-SemiBoldItalic.ttf */; };
+		D3953BE52B6D5CBA00D15B7B /* PetSelectionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BE42B6D5CBA00D15B7B /* PetSelectionPage.swift */; };
+		D3953BE72B6D5D2F00D15B7B /* SelectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BE62B6D5D2F00D15B7B /* SelectionItem.swift */; };
+		D3953BE92B6D610700D15B7B /* SelectionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BE82B6D610700D15B7B /* SelectionGroup.swift */; };
+		D3953BED2B6D672600D15B7B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BEC2B6D672600D15B7B /* PrimaryButton.swift */; };
+		D3953BEF2B6D67C400D15B7B /* SnackSelectionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BEE2B6D67C400D15B7B /* SnackSelectionPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +70,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D32BA3882B6D6B4000CDB911 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D32BA38A2B6D6C8F00CDB911 /* TimerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPage.swift; sourceTree = "<group>"; };
+		D32BA38E2B6D78A600CDB911 /* GIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFImage.swift; sourceTree = "<group>"; };
+		D32BA3902B6D79B500CDB911 /* hedgehog_pizza_sauce.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hedgehog_pizza_sauce.gif; sourceTree = "<group>"; };
+		D32BA3912B6D79B500CDB911 /* hedgehog_pizza_cooking.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hedgehog_pizza_cooking.gif; sourceTree = "<group>"; };
+		D32BA3922B6D79B500CDB911 /* hedgehog_pizza_eating.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hedgehog_pizza_eating.gif; sourceTree = "<group>"; };
+		D32BA3932B6D79B500CDB911 /* hedgehog_pizza_dough_roll.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hedgehog_pizza_dough_roll.gif; sourceTree = "<group>"; };
+		D32BA3942B6D79B500CDB911 /* hedgehog_pizza_dough.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hedgehog_pizza_dough.gif; sourceTree = "<group>"; };
+		D32BA3952B6D79B500CDB911 /* hedgehog_pizza_ingredients.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hedgehog_pizza_ingredients.gif; sourceTree = "<group>"; };
+		D36BF8FB2B6F904000A753DA /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		D36BF8FD2B6FA0EC00A753DA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		D36BF8FF2B6FE8E400A753DA /* CircularSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularSliderView.swift; sourceTree = "<group>"; };
 		D3953B5B2B6D368A00D15B7B /* nomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3953B5E2B6D368A00D15B7B /* nomodoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nomodoroApp.swift; sourceTree = "<group>"; };
 		D3953B602B6D368A00D15B7B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +92,31 @@
 		D3953B752B6D368F00D15B7B /* nomodoroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nomodoroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3953B792B6D368F00D15B7B /* nomodoroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nomodoroUITests.swift; sourceTree = "<group>"; };
 		D3953B7B2B6D368F00D15B7B /* nomodoroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nomodoroUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D3953B882B6D42EA00D15B7B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		D3953BBB2B6D460400D15B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D3953BBE2B6D494800D15B7B /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		D3953BBF2B6D494900D15B7B /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		D3953BC02B6D494900D15B7B /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		D3953BC12B6D494900D15B7B /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
+		D3953BC22B6D494900D15B7B /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		D3953BC32B6D494900D15B7B /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		D3953BC42B6D494900D15B7B /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		D3953BC52B6D494900D15B7B /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		D3953BC62B6D494900D15B7B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		D3953BC72B6D494900D15B7B /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		D3953BC82B6D494900D15B7B /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		D3953BC92B6D494900D15B7B /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		D3953BCA2B6D494900D15B7B /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "nomodoro/Fonts/Montserrat-SemiBold.ttf"; sourceTree = SOURCE_ROOT; };
+		D3953BCB2B6D494900D15B7B /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		D3953BCC2B6D494900D15B7B /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		D3953BCD2B6D494900D15B7B /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		D3953BCE2B6D494900D15B7B /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
+		D3953BCF2B6D494900D15B7B /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		D3953BE42B6D5CBA00D15B7B /* PetSelectionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSelectionPage.swift; sourceTree = "<group>"; };
+		D3953BE62B6D5D2F00D15B7B /* SelectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionItem.swift; sourceTree = "<group>"; };
+		D3953BE82B6D610700D15B7B /* SelectionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionGroup.swift; sourceTree = "<group>"; };
+		D3953BEC2B6D672600D15B7B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		D3953BEE2B6D67C400D15B7B /* SnackSelectionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackSelectionPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +144,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D32BA39D2B6D7EF800CDB911 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D32BA38E2B6D78A600CDB911 /* GIFImage.swift */,
+				D3953BE62B6D5D2F00D15B7B /* SelectionItem.swift */,
+				D3953BE82B6D610700D15B7B /* SelectionGroup.swift */,
+				D36BF8FB2B6F904000A753DA /* TimerView.swift */,
+				D36BF8FF2B6FE8E400A753DA /* CircularSliderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D32BA39E2B6D7F2C00CDB911 /* GIFS */ = {
+			isa = PBXGroup;
+			children = (
+				D32BA3912B6D79B500CDB911 /* hedgehog_pizza_cooking.gif */,
+				D32BA3932B6D79B500CDB911 /* hedgehog_pizza_dough_roll.gif */,
+				D32BA3942B6D79B500CDB911 /* hedgehog_pizza_dough.gif */,
+				D32BA3922B6D79B500CDB911 /* hedgehog_pizza_eating.gif */,
+				D32BA3952B6D79B500CDB911 /* hedgehog_pizza_ingredients.gif */,
+				D32BA3902B6D79B500CDB911 /* hedgehog_pizza_sauce.gif */,
+			);
+			path = GIFS;
+			sourceTree = "<group>";
+		};
+		D32BA39F2B6D7F3D00CDB911 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D3953BE42B6D5CBA00D15B7B /* PetSelectionPage.swift */,
+				D3953BEE2B6D67C400D15B7B /* SnackSelectionPage.swift */,
+				D32BA3882B6D6B4000CDB911 /* MainView.swift */,
+				D32BA38A2B6D6C8F00CDB911 /* TimerPage.swift */,
+				D36BF8FD2B6FA0EC00A753DA /* TimerViewModel.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		D3953B522B6D368A00D15B7B = {
 			isa = PBXGroup;
 			children = (
@@ -94,9 +204,16 @@
 		D3953B5D2B6D368A00D15B7B /* nomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				D32BA39E2B6D7F2C00CDB911 /* GIFS */,
+				D32BA39D2B6D7EF800CDB911 /* Views */,
+				D3953BBD2B6D493C00D15B7B /* Fonts */,
+				D3953BEA2B6D671100D15B7B /* Styles */,
+				D32BA39F2B6D7F3D00CDB911 /* Screens */,
 				D3953B5E2B6D368A00D15B7B /* nomodoroApp.swift */,
+				D3953B882B6D42EA00D15B7B /* SplashView.swift */,
 				D3953B602B6D368A00D15B7B /* ContentView.swift */,
 				D3953B622B6D368F00D15B7B /* Assets.xcassets */,
+				D3953BBB2B6D460400D15B7B /* Info.plist */,
 				D3953B642B6D368F00D15B7B /* Preview Content */,
 			);
 			path = nomodoro;
@@ -125,6 +242,47 @@
 				D3953B7B2B6D368F00D15B7B /* nomodoroUITestsLaunchTests.swift */,
 			);
 			path = nomodoroUITests;
+			sourceTree = "<group>";
+		};
+		D3953BBD2B6D493C00D15B7B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D3953BC92B6D494900D15B7B /* Montserrat-Black.ttf */,
+				D3953BCE2B6D494900D15B7B /* Montserrat-BlackItalic.ttf */,
+				D3953BC52B6D494900D15B7B /* Montserrat-Bold.ttf */,
+				D3953BC72B6D494900D15B7B /* Montserrat-BoldItalic.ttf */,
+				D3953BC82B6D494900D15B7B /* Montserrat-ExtraBold.ttf */,
+				D3953BCB2B6D494900D15B7B /* Montserrat-ExtraBoldItalic.ttf */,
+				D3953BBE2B6D494800D15B7B /* Montserrat-ExtraLight.ttf */,
+				D3953BC42B6D494900D15B7B /* Montserrat-ExtraLightItalic.ttf */,
+				D3953BCF2B6D494900D15B7B /* Montserrat-Italic.ttf */,
+				D3953BC22B6D494900D15B7B /* Montserrat-Light.ttf */,
+				D3953BC12B6D494900D15B7B /* Montserrat-LightItalic.ttf */,
+				D3953BC62B6D494900D15B7B /* Montserrat-Medium.ttf */,
+				D3953BC02B6D494900D15B7B /* Montserrat-MediumItalic.ttf */,
+				D3953BBF2B6D494900D15B7B /* Montserrat-Regular.ttf */,
+				D3953BCA2B6D494900D15B7B /* Montserrat-SemiBold.ttf */,
+				D3953BCC2B6D494900D15B7B /* Montserrat-SemiBoldItalic.ttf */,
+				D3953BCD2B6D494900D15B7B /* Montserrat-Thin.ttf */,
+				D3953BC32B6D494900D15B7B /* Montserrat-ThinItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D3953BEA2B6D671100D15B7B /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				D3953BEB2B6D671600D15B7B /* Button */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		D3953BEB2B6D671600D15B7B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				D3953BEC2B6D672600D15B7B /* PrimaryButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +389,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3953BDD2B6D4EBD00D15B7B /* Montserrat-LightItalic.ttf in Resources */,
+				D32BA3962B6D79B500CDB911 /* hedgehog_pizza_sauce.gif in Resources */,
+				D3953BDA2B6D4EBD00D15B7B /* Montserrat-BoldItalic.ttf in Resources */,
+				D32BA3972B6D79B500CDB911 /* hedgehog_pizza_cooking.gif in Resources */,
+				D3953BDB2B6D4EBD00D15B7B /* Montserrat-BlackItalic.ttf in Resources */,
+				D3953BD72B6D4EBD00D15B7B /* Montserrat-MediumItalic.ttf in Resources */,
+				D3953BD82B6D4EBD00D15B7B /* Montserrat-SemiBold.ttf in Resources */,
+				D32BA3992B6D79B500CDB911 /* hedgehog_pizza_dough_roll.gif in Resources */,
 				D3953B662B6D368F00D15B7B /* Preview Assets.xcassets in Resources */,
+				D32BA39B2B6D79B500CDB911 /* hedgehog_pizza_ingredients.gif in Resources */,
+				D32BA39A2B6D79B500CDB911 /* hedgehog_pizza_dough.gif in Resources */,
+				D3953BE02B6D4EBD00D15B7B /* Montserrat-Italic.ttf in Resources */,
+				D32BA3982B6D79B500CDB911 /* hedgehog_pizza_eating.gif in Resources */,
+				D3953BD62B6D4EBD00D15B7B /* Montserrat-Thin.ttf in Resources */,
+				D3953BD32B6D4EBD00D15B7B /* Montserrat-ExtraBold.ttf in Resources */,
+				D3953BD42B6D4EBD00D15B7B /* Montserrat-Regular.ttf in Resources */,
+				D3953BDE2B6D4EBD00D15B7B /* Montserrat-ThinItalic.ttf in Resources */,
 				D3953B632B6D368F00D15B7B /* Assets.xcassets in Resources */,
+				D3953BD52B6D4EBD00D15B7B /* Montserrat-Light.ttf in Resources */,
+				D3953BD92B6D4EBD00D15B7B /* Montserrat-Bold.ttf in Resources */,
+				D3953BD12B6D4EBD00D15B7B /* Montserrat-Medium.ttf in Resources */,
+				D3953BDC2B6D4EBD00D15B7B /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				D3953BD02B6D4EBD00D15B7B /* Montserrat-ExtraLightItalic.ttf in Resources */,
+				D3953BD22B6D4EBD00D15B7B /* Montserrat-ExtraLight.ttf in Resources */,
+				D3953BE12B6D4EBD00D15B7B /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				D3953BDF2B6D4EBD00D15B7B /* Montserrat-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +439,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32BA38B2B6D6C8F00CDB911 /* TimerPage.swift in Sources */,
 				D3953B612B6D368A00D15B7B /* ContentView.swift in Sources */,
+				D32BA3892B6D6B4000CDB911 /* MainView.swift in Sources */,
+				D36BF8FE2B6FA0EC00A753DA /* TimerViewModel.swift in Sources */,
 				D3953B5F2B6D368A00D15B7B /* nomodoroApp.swift in Sources */,
+				D3953BE52B6D5CBA00D15B7B /* PetSelectionPage.swift in Sources */,
+				D36BF9002B6FE8E400A753DA /* CircularSliderView.swift in Sources */,
+				D32BA38F2B6D78A600CDB911 /* GIFImage.swift in Sources */,
+				D36BF8FC2B6F904000A753DA /* TimerView.swift in Sources */,
+				D3953B892B6D42EA00D15B7B /* SplashView.swift in Sources */,
+				D3953BED2B6D672600D15B7B /* PrimaryButton.swift in Sources */,
+				D3953BE92B6D610700D15B7B /* SelectionGroup.swift in Sources */,
+				D3953BEF2B6D67C400D15B7B /* SnackSelectionPage.swift in Sources */,
+				D3953BE72B6D5D2F00D15B7B /* SelectionItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +619,8 @@
 				DEVELOPMENT_TEAM = XQ795PANJ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = nomodoro/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +650,8 @@
 				DEVELOPMENT_TEAM = XQ795PANJ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = nomodoro/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
