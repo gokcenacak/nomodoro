@@ -1,47 +1,23 @@
-//
-//  GIFImage.swift
-//  nomodoro
-//
-//  Created by G on 2024-02-02.
-//
-
-import Foundation
 import SwiftUI
 
 public struct GIFImage: UIViewRepresentable {
-    private let data: Data?
-    private let name: String?
-    
-    public init(data: Data) {
-        self.data = data
-        self.name = nil
-    }
+    private let name: String
     
     public init(name: String) {
-        self.data = nil
         self.name = name
     }
     
     public func makeUIView(context: Context) -> UIGIFImage {
-        if let data = data {
-            return UIGIFImage(data: data)
-        } else {
-            return UIGIFImage(name: name ?? "")
-        }
+        return UIGIFImage(name: name)
     }
     
     public func updateUIView(_ uiView: UIGIFImage, context: Context) {
-        if let data = data {
-            uiView.updateGIF(data: data)
-        } else {
-            uiView.updateGIF(name: name ?? "")
-        }
+        uiView.updateGIF(name: name)
     }
 }
 
 public class UIGIFImage: UIView {
     private let imageView = UIImageView()
-    private var data: Data?
     private var name: String?
     
     override init(frame: CGRect) {
@@ -56,12 +32,8 @@ public class UIGIFImage: UIView {
         self.init()
         self.name = name
         initView()
-    }
-    
-    convenience init(data: Data) {
-        self.init()
-        self.data = data
-        initView()
+        imageView.image = UIImage.gif(name: name)
+
     }
     
     public override func layoutSubviews() {
@@ -72,13 +44,13 @@ public class UIGIFImage: UIView {
     
     func updateGIF(data: Data) {
         updateWithImage {
-            UIImage.gifImage(data: data)
+            UIImage.gif(data: data)
         }
     }
     
     func updateGIF(name: String) {
         updateWithImage {
-            UIImage.gifImage(name: name)
+            UIImage.gif(name: name)
         }
     }
     
@@ -97,92 +69,203 @@ public class UIGIFImage: UIView {
     }
 }
 
-public extension UIImage {
-    class func gifImage(data: Data) -> UIImage? {
-        guard let source = CGImageSourceCreateWithData(data as CFData, nil)
-        else {
+extension UIImage {
+    
+    public class func gif(data: Data) -> UIImage? {
+        // Create source from data
+        guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
+            print("SwiftGif: Source for the image does not exist")
             return nil
         }
-        let count = CGImageSourceGetCount(source)
-        let delays = (0..<count).map {
-            // store in ms and truncate to compute GCD more easily
-            Int(delayForImage(at: $0, source: source) * 1000)
-        }
-        let duration = delays.reduce(0, +)
-        let gcd = delays.reduce(0, gcd)
         
-        var frames = [UIImage]()
-        for i in 0..<count {
-            if let cgImage = CGImageSourceCreateImageAtIndex(source, i, nil) {
-                let frame = UIImage(cgImage: cgImage)
-                let frameCount = delays[i] / gcd
-                
-                for _ in 0..<frameCount {
-                    frames.append(frame)
-                }
-            } else {
+        return UIImage.animatedImageWithSource(source)
+    }
+    
+    public class func gif(url: String) -> UIImage? {
+        // Validate URL
+        guard let bundleURL = URL(string: url) else {
+            print("SwiftGif: This image named \"\(url)\" does not exist")
+            return nil
+        }
+        
+        // Validate data
+        guard let imageData = try? Data(contentsOf: bundleURL) else {
+            print("SwiftGif: Cannot turn image named \"\(url)\" into NSData")
+            return nil
+        }
+        
+        return gif(data: imageData)
+    }
+    
+    public class func gif(name: String) -> UIImage? {
+        // Check for existance of gif
+        guard let bundleURL = Bundle.main
+            .url(forResource: name, withExtension: "gif") else {
+                print("SwiftGif: This image named \"\(name)\" does not exist")
                 return nil
+        }
+        
+        // Validate data
+        guard let imageData = try? Data(contentsOf: bundleURL) else {
+            print("SwiftGif: Cannot turn image named \"\(name)\" into NSData")
+            return nil
+        }
+        
+        return gif(data: imageData)
+    }
+    
+    @available(iOS 9.0, *)
+    public class func gif(asset: String) -> UIImage? {
+        // Create source from assets catalog
+        guard let dataAsset = NSDataAsset(name: asset) else {
+            print("SwiftGif: Cannot turn image named \"\(asset)\" into NSDataAsset")
+            return nil
+        }
+        
+        return gif(data: dataAsset.data)
+    }
+    
+    internal class func delayForImageAtIndex(_ index: Int, source: CGImageSource!) -> Double {
+        var delay = 0.1
+        
+        // Get dictionaries
+        let cfProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil)
+        let gifPropertiesPointer = UnsafeMutablePointer<UnsafeRawPointer?>.allocate(capacity: 0)
+        defer {
+            gifPropertiesPointer.deallocate()
+        }
+        let unsafePointer = Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque()
+        if CFDictionaryGetValueIfPresent(cfProperties, unsafePointer, gifPropertiesPointer) == false {
+            return delay
+        }
+        
+        let gifProperties: CFDictionary = unsafeBitCast(gifPropertiesPointer.pointee, to: CFDictionary.self)
+        
+        // Get delay time
+        var delayObject: AnyObject = unsafeBitCast(
+            CFDictionaryGetValue(gifProperties,
+                                 Unmanaged.passUnretained(kCGImagePropertyGIFUnclampedDelayTime).toOpaque()),
+            to: AnyObject.self)
+        if delayObject.doubleValue == 0 {
+            delayObject = unsafeBitCast(CFDictionaryGetValue(gifProperties,
+                                                             Unmanaged.passUnretained(kCGImagePropertyGIFDelayTime).toOpaque()), to: AnyObject.self)
+        }
+        
+        if let delayObject = delayObject as? Double, delayObject > 0 {
+            delay = delayObject
+        } else {
+            delay = 0.1 // Make sure they're not too fast
+        }
+        
+        return delay
+    }
+    
+    internal class func gcdForPair(_ lhs: Int?, _ rhs: Int?) -> Int {
+        var lhs = lhs
+        var rhs = rhs
+        // Check if one of them is nil
+        if rhs == nil || lhs == nil {
+            if rhs != nil {
+                return rhs!
+            } else if lhs != nil {
+                return lhs!
+            } else {
+                return 0
             }
         }
         
-        return UIImage.animatedImage(with: frames,
-                                     duration: Double(duration) / 1000.0)
-    }
-    
-    class func gifImage(name: String) -> UIImage? {
-        guard let url = Bundle.main.url(forResource: name, withExtension: "gif"),
-              let data = try? Data(contentsOf: url)
-        else {
-            return nil
+        // Swap for modulo
+        if lhs! < rhs! {
+            let ctp = lhs
+            lhs = rhs
+            rhs = ctp
         }
-        return gifImage(data: data)
-    }
-}
-
-private func gcd(_ a: Int, _ b: Int) -> Int {
-    let absB = abs(b)
-    let r = abs(a) % absB
-    if r != 0 {
-        return gcd(absB, r)
-    } else {
-        return absB
-    }
-}
-
-private func delayForImage(at index: Int, source: CGImageSource) -> Double {
-    let defaultDelay = 1.0
-    
-    let cfProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil)
-    let gifPropertiesPointer = UnsafeMutablePointer<UnsafeRawPointer?>.allocate(capacity: 0)
-    defer {
-        gifPropertiesPointer.deallocate()
-    }
-    let unsafePointer = Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque()
-    if CFDictionaryGetValueIfPresent(cfProperties, unsafePointer, gifPropertiesPointer) == false {
-        return defaultDelay
-    }
-    let gifProperties = unsafeBitCast(gifPropertiesPointer.pointee, to: CFDictionary.self)
-    var delayWrapper = unsafeBitCast(CFDictionaryGetValue(gifProperties,
-                                                         Unmanaged.passUnretained(kCGImagePropertyGIFUnclampedDelayTime).toOpaque()),
-                                    to: AnyObject.self)
-    if delayWrapper.doubleValue == 0 {
-        delayWrapper = unsafeBitCast(CFDictionaryGetValue(gifProperties,
-                                                         Unmanaged.passUnretained(kCGImagePropertyGIFDelayTime).toOpaque()),
-                                    to: AnyObject.self)
+        
+        // Get greatest common divisor
+        var rest: Int
+        while true {
+            rest = lhs! % rhs!
+            
+            if rest == 0 {
+                return rhs! // Found it
+            } else {
+                lhs = rhs
+                rhs = rest
+            }
+        }
     }
     
-    if let delay = delayWrapper as? Double,
-       delay > 0 {
-        return delay
-    } else {
-        return defaultDelay
+    internal class func gcdForArray(_ array: [Int]) -> Int {
+        if array.isEmpty {
+            return 1
+        }
+        
+        var gcd = array[0]
+        
+        for val in array {
+            gcd = UIImage.gcdForPair(val, gcd)
+        }
+        
+        return gcd
     }
+    
+    internal class func animatedImageWithSource(_ source: CGImageSource) -> UIImage? {
+        let count = CGImageSourceGetCount(source)
+        var images = [CGImage]()
+        var delays = [Int]()
+        
+        // Fill arrays
+        for index in 0..<count {
+            // Add image
+            if let image = CGImageSourceCreateImageAtIndex(source, index, nil) {
+                images.append(image)
+            }
+            
+            // At it's delay in cs
+            let delaySeconds = UIImage.delayForImageAtIndex(Int(index),
+                                                            source: source)
+            delays.append(Int(delaySeconds * 1000.0)) // Seconds to ms
+        }
+        
+        // Calculate full duration
+        let duration: Int = {
+            var sum = 0
+            
+            for val: Int in delays {
+                sum += val
+            }
+            
+            return sum
+        }()
+        
+        // Get frames
+        let gcd = gcdForArray(delays)
+        var frames = [UIImage]()
+        
+        var frame: UIImage
+        var frameCount: Int
+        for index in 0..<count {
+            frame = UIImage(cgImage: images[Int(index)])
+            frameCount = Int(delays[Int(index)] / gcd)
+            
+            for _ in 0..<frameCount {
+                frames.append(frame)
+            }
+        }
+        
+        // Heyhey
+        let animation = UIImage.animatedImage(with: frames,
+                                              duration: Double(duration) / 1000.0)
+        
+        return animation
+    }
+    
 }
-
 
 
 struct GIFImage_Previews: PreviewProvider {
     static var previews: some View {
-        GIFImage(name: "hedgehog_pizza_dough")
+        GIFImage(name: "")
     }
 }
+

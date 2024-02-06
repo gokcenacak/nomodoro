@@ -12,16 +12,19 @@ struct SelectionGroup: View {
     let columns = [GridItem(.flexible(), spacing: 0),
                    GridItem(.flexible(), spacing: 0)]
     @State var selectedItem: Int = 0
-    var onSelectionChanged: (Int)->()
+    var onSelectionChanged: (String)->()
     var body: some View {
         LazyVGrid(columns: columns, spacing: 30) {
             
             ForEach(images.indices, id:\.self) { count in
                 SelectionItem(imageName: images[count], isSelected: count == selectedItem).onTapGesture {
                     selectedItem = count
-                    onSelectionChanged(selectedItem)
+                    onSelectionChanged(images[selectedItem])
                 }
             }
+        }.onAppear() {
+            selectedItem = 0
+            onSelectionChanged(images[selectedItem])
         }
     }
 }

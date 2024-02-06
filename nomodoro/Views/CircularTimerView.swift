@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct CircularSliderView: View {
+//TODO: Timer to set itself in minutes, not seconds!
+struct CircularTimerView: View {
     
     @Binding var timerState: TimerViewModel.TimerState
     @Binding var value: Double
@@ -37,11 +38,10 @@ struct CircularSliderView: View {
         previousValue = value
         let newValue = (((positiveAngle / (2.0 * .pi)) * (maxValue - minValue)) + minValue).rounded()
         
-        //TODO: There is a bug: you cannot set to 0 or 60
+        //TODO: There is a bug: when you keep on turning it stops
         if (abs(previousValue - newValue) >= maxValue / 2.0) {
             if (newValue < previousValue) {
                 previousValue = maxValue
-                print("we can set to 60")
             }
             value = previousValue
             positiveAngle = previousAngle
@@ -49,9 +49,6 @@ struct CircularSliderView: View {
             rotationAngle = Angle(radians: positiveAngle)
         } else if newValue < 5*60 {
             value = 5*60
-            // angleRadians = ((2.0 * .pi)*5.0)/(maxValue)
-            // positiveAngle = angleRadians < 0.0 ? angleRadians + (2.0 * .pi) : angleRadians
-            // previousAngle = positiveAngle
             rotationAngle = Angle(degrees: (360.0 / maxValue) *  5.0 * 60.0)
         }
         else {

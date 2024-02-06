@@ -15,13 +15,14 @@ struct TimerPage: View {
             Color("backgroundColor", bundle: Bundle.main)
             VStack(spacing: 50) {
                 ZStack {
-                    CircularSliderView(timerState: $viewModel.timerState,value: $viewModel.timerCounter, minValue: 0, maxValue: 60 * 60).frame(width: 350, height: 350)
+                    CircularTimerView(timerState: $viewModel.timerState,value: $viewModel.timerCounter, minValue: 0, maxValue: 60 * 60).frame(width: 350, height: 350)
                     
                     if viewModel.timerState == .reset || viewModel.timerState == .paused {
                         //TODO: Reset / pause animation - can be custom for each or not will decide
-                        Image("hedgehog").resizable().scaledToFit().frame(width: 220, height: 220)
+                        let selectedPet = UserDefaults.standard.value(forKey: "selectedPet") as! String
+                        Image(selectedPet).resizable().scaledToFit().frame(width: 220, height: 220)
                     } else {
-                        GIFImage(name:viewModel.currentImageUrl).frame(width: 220, height: 220)
+                        GIFImage(name:viewModel.currentImageUrl ?? viewModel.images[0]).frame(width: 220, height: 220)
                     }
                 }
                 
@@ -50,8 +51,8 @@ struct TimerPage: View {
             }
             
         }.ignoresSafeArea().navigationBarTitle("", displayMode: .inline).onAppear() {
-            print(UserDefaults.standard.value(forKey: "snackIndex"))
-            print(UserDefaults.standard.value(forKey: "petIndex"))
+            print(UserDefaults.standard.value(forKey: "selectedPet"))
+            print(UserDefaults.standard.value(forKey: "selectedSnack"))
         }
     }
 }
