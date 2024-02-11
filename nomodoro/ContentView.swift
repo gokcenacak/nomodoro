@@ -16,7 +16,7 @@ struct ContentView: View {
             if self.showSplash {
                 SplashView()
             } else {
-                MainView()
+                TimerPage()
             }
         }.ignoresSafeArea()
         .onAppear {

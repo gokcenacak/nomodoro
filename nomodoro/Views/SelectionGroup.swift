@@ -6,31 +6,58 @@
 //
 
 import SwiftUI
-
+struct ImageSelectionItem: Identifiable {
+    let id: Int
+    let url: String
+}
 struct SelectionGroup: View {
-    let images: [String]
+    
+    @Binding var images: [String]
     let columns = [GridItem(.flexible(), spacing: 0),
                    GridItem(.flexible(), spacing: 0)]
     @State var selectedItem: Int = 0
     var onSelectionChanged: (String)->()
+    
     var body: some View {
-        LazyVGrid(columns: columns, spacing: 30) {
-            
-            ForEach(images.indices, id:\.self) { count in
-                SelectionItem(imageName: images[count], isSelected: count == selectedItem).onTapGesture {
-                    selectedItem = count
-                    onSelectionChanged(images[selectedItem])
+        HStack {
+            Button {
+                if selectedItem == 0 {
+                    selectedItem = images.count - 1
+                } else {
+                    selectedItem -= 1
                 }
+                onSelectionChanged(images[selectedItem])
+            } label: {
+                Image(systemName: "chevron.left").resizable().scaledToFit().frame(width: 40, height: 40).padding().foregroundStyle(Color.white).font(Font.title.weight(.black))
             }
-        }.onAppear() {
-            selectedItem = 0
-            onSelectionChanged(images[selectedItem])
+            Image(images[selectedItem]).resizable().scaledToFit().frame(width: 150)
+                .id(selectedItem)
+                .transition(.scale.animation(.bouncy))
+                
+            Button {
+                if selectedItem == images.count - 1 {
+                    selectedItem = 0
+                } else {
+                    selectedItem += 1
+                }
+                onSelectionChanged(images[selectedItem])
+            } label: {
+                Image(systemName: "chevron.right").resizable().scaledToFit().frame(width: 40, height: 40).padding().foregroundStyle(Color.white).font(Font.title.weight(.black))
+            }
+
         }
     }
+    
+   
 }
 
 #Preview {
-    SelectionGroup(images:["hedgehog", "hedgehog","hedgehog", "hedgehog"]) { selection in
-        
+    ZStack {
+        Color.black
+//        SelectionGroup(images: [SnackType.pizza.rawValue,
+//                        SnackType.cake.rawValue,
+//                        SnackType.cookie.rawValue,
+//                                SnackType.ramen.rawValue], onSelectionChanged: {_ in })
     }
+    
 }

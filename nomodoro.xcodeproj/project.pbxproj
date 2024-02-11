@@ -27,7 +27,6 @@
 		D32444862B72B6E10067E28B /* hedgehog_cake_7.gif in Resources */ = {isa = PBXBuildFile; fileRef = D324447F2B72B6E10067E28B /* hedgehog_cake_7.gif */; };
 		D32444872B72B6E10067E28B /* hedgehog_cake_2.gif in Resources */ = {isa = PBXBuildFile; fileRef = D32444802B72B6E10067E28B /* hedgehog_cake_2.gif */; };
 		D324448D2B72C2D60067E28B /* SwiftUIGIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D324448C2B72C2D60067E28B /* SwiftUIGIFImage.swift */; };
-		D32BA3892B6D6B4000CDB911 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BA3882B6D6B4000CDB911 /* MainView.swift */; };
 		D32BA38B2B6D6C8F00CDB911 /* TimerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BA38A2B6D6C8F00CDB911 /* TimerPage.swift */; };
 		D32BA38F2B6D78A600CDB911 /* GIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32BA38E2B6D78A600CDB911 /* GIFImage.swift */; };
 		D32BA3962B6D79B500CDB911 /* hedgehog_pizza_3.gif in Resources */ = {isa = PBXBuildFile; fileRef = D32BA3902B6D79B500CDB911 /* hedgehog_pizza_3.gif */; };
@@ -66,11 +65,9 @@
 		D3953BDF2B6D4EBD00D15B7B /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BC92B6D494900D15B7B /* Montserrat-Black.ttf */; };
 		D3953BE02B6D4EBD00D15B7B /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BCF2B6D494900D15B7B /* Montserrat-Italic.ttf */; };
 		D3953BE12B6D4EBD00D15B7B /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3953BCC2B6D494900D15B7B /* Montserrat-SemiBoldItalic.ttf */; };
-		D3953BE52B6D5CBA00D15B7B /* PetSelectionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BE42B6D5CBA00D15B7B /* PetSelectionPage.swift */; };
 		D3953BE72B6D5D2F00D15B7B /* SelectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BE62B6D5D2F00D15B7B /* SelectionItem.swift */; };
 		D3953BE92B6D610700D15B7B /* SelectionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BE82B6D610700D15B7B /* SelectionGroup.swift */; };
 		D3953BED2B6D672600D15B7B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BEC2B6D672600D15B7B /* PrimaryButton.swift */; };
-		D3953BEF2B6D67C400D15B7B /* SnackSelectionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BEE2B6D67C400D15B7B /* SnackSelectionPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +108,6 @@
 		D324447F2B72B6E10067E28B /* hedgehog_cake_7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hedgehog_cake_7.gif; sourceTree = "<group>"; };
 		D32444802B72B6E10067E28B /* hedgehog_cake_2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hedgehog_cake_2.gif; sourceTree = "<group>"; };
 		D324448C2B72C2D60067E28B /* SwiftUIGIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIGIFImage.swift; sourceTree = "<group>"; };
-		D32BA3882B6D6B4000CDB911 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D32BA38A2B6D6C8F00CDB911 /* TimerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPage.swift; sourceTree = "<group>"; };
 		D32BA38E2B6D78A600CDB911 /* GIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFImage.swift; sourceTree = "<group>"; };
 		D32BA3902B6D79B500CDB911 /* hedgehog_pizza_3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hedgehog_pizza_3.gif; sourceTree = "<group>"; };
@@ -154,11 +150,9 @@
 		D3953BCD2B6D494900D15B7B /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
 		D3953BCE2B6D494900D15B7B /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
 		D3953BCF2B6D494900D15B7B /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
-		D3953BE42B6D5CBA00D15B7B /* PetSelectionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSelectionPage.swift; sourceTree = "<group>"; };
 		D3953BE62B6D5D2F00D15B7B /* SelectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionItem.swift; sourceTree = "<group>"; };
 		D3953BE82B6D610700D15B7B /* SelectionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionGroup.swift; sourceTree = "<group>"; };
 		D3953BEC2B6D672600D15B7B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		D3953BEE2B6D67C400D15B7B /* SnackSelectionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackSelectionPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,9 +227,6 @@
 		D32BA39F2B6D7F3D00CDB911 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				D3953BE42B6D5CBA00D15B7B /* PetSelectionPage.swift */,
-				D3953BEE2B6D67C400D15B7B /* SnackSelectionPage.swift */,
-				D32BA3882B6D6B4000CDB911 /* MainView.swift */,
 				D32BA38A2B6D6C8F00CDB911 /* TimerPage.swift */,
 				D36BF8FD2B6FA0EC00A753DA /* TimerViewModel.swift */,
 			);
@@ -532,18 +523,15 @@
 				D35161C72B70EF7300722C56 /* Pet.swift in Sources */,
 				D32BA38B2B6D6C8F00CDB911 /* TimerPage.swift in Sources */,
 				D3953B612B6D368A00D15B7B /* ContentView.swift in Sources */,
-				D32BA3892B6D6B4000CDB911 /* MainView.swift in Sources */,
 				D324448D2B72C2D60067E28B /* SwiftUIGIFImage.swift in Sources */,
 				D36BF8FE2B6FA0EC00A753DA /* TimerViewModel.swift in Sources */,
 				D3953B5F2B6D368A00D15B7B /* nomodoroApp.swift in Sources */,
-				D3953BE52B6D5CBA00D15B7B /* PetSelectionPage.swift in Sources */,
 				D35161C52B70EF5500722C56 /* Snack.swift in Sources */,
 				D36BF9002B6FE8E400A753DA /* CircularTimerView.swift in Sources */,
 				D32BA38F2B6D78A600CDB911 /* GIFImage.swift in Sources */,
 				D3953B892B6D42EA00D15B7B /* SplashView.swift in Sources */,
 				D3953BED2B6D672600D15B7B /* PrimaryButton.swift in Sources */,
 				D3953BE92B6D610700D15B7B /* SelectionGroup.swift in Sources */,
-				D3953BEF2B6D67C400D15B7B /* SnackSelectionPage.swift in Sources */,
 				D3953BE72B6D5D2F00D15B7B /* SelectionItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

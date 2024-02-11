@@ -6,28 +6,33 @@
 //
 
 import Foundation
-
+enum TimerState {
+    case active
+    case paused
+    case resumed
+    case reset
+}
 final class TimerViewModel: ObservableObject {
-    let imageDataSource : [String: [String : [String]]] = ["hedgehog" : ["pizza" : ["hedgehog_pizza_dough",
-                                             "hedgehog_pizza_dough_roll",
-                                             "hedgehog_pizza_sauce",
-                                             "hedgehog_pizza_ingredients",
-                                             "hedgehog_pizza_cooking",
-                                             "hedgehog_pizza_eating"],
+    let imageDataSource : [String: [String : [String]]] = ["hedgehog" : ["pizza" : ["hedgehog_pizza_1",
+                                             "hedgehog_pizza_2",
+                                             "hedgehog_pizza_3",
+                                             "hedgehog_pizza_4",
+                                             "hedgehog_pizza_5",
+                                             "hedgehog_pizza_6"],
                                 
                                 "cookie" : ["hedgehog_cookie_1",
                                               "hedgehog_cookie_2",
                                               "hedgehog_cookie_3",
                                               "hedgehog_cookie_4",
-                                              "hedgehog_cookie_5",
-                                              "hedgehog_cookie_6"],
+                                              "hedgehog_cookie_5"],
                                 
                                 "cake" :   ["hedgehog_cake_1",
                                               "hedgehog_cake_2",
                                               "hedgehog_cake_3",
                                               "hedgehog_cake_4",
                                               "hedgehog_cake_5",
-                                              "hedgehog_cake_6"],
+                                            "hedgehog_cake_6",
+                                            "hedgehog_cake_7"],
                                 
                                 "ramen" :   ["hedgehog_ramen_1",
                                                "hedgehog_ramen_2",
@@ -119,7 +124,26 @@ final class TimerViewModel: ObservableObject {
                                              "rabbit_ramen_5",
                                              "rabbit_ramen_6"]]]
     
-    var images: [String] = []
+    let petImages = [PetType.hedgehog.rawValue, PetType.hedgehog.rawValue, PetType.hedgehog.rawValue, PetType.hedgehog.rawValue]
+    let snackImages = [SnackType.pizza.rawValue,
+                       SnackType.cake.rawValue,
+                       SnackType.cookie.rawValue,
+                               SnackType.ramen.rawValue]
+    @Published var images: [String]
+    @Published var selectionType = SelectionType.Pet {
+        didSet {
+            switch selectionType {
+            case .Pet:
+                images = petImages
+            case .Snack:
+                images = snackImages
+            }
+        }
+    }
+    
+    var selectedPet: PetType = .hedgehog
+    var selectedSnack: SnackType = .pizza
+    
     @Published var activeImageIndex = 0
     @Published var timerState: TimerState = .reset
     @Published var timerDuration: Double = 0
@@ -140,19 +164,10 @@ final class TimerViewModel: ObservableObject {
     @Published var currentImageUrl: String?
     @Published var isShowingAlert = (false, "")
     
-    enum TimerState {
-        case active
-        case paused
-        case resumed
-        case reset
-    }
+    
     
     init() {
-        let selectedPet = UserDefaults.standard.value(forKey: "selectedPet") as! String
-        let selectedSnack = UserDefaults.standard.value(forKey: "selectedSnack") as! String
-        
-        guard let imagesForPet = imageDataSource[selectedPet] else { return }
-        images = imagesForPet[selectedSnack] ?? []
+        images = petImages
         
         if images.isEmpty {
             isShowingAlert = (true, "There is a problem with images")
@@ -171,6 +186,21 @@ final class TimerViewModel: ObservableObject {
     }
     
     func setTimerState(_ state: TimerState) {
+        if state == .active {
+            let selectedPet = UserDefaults.standard.value(forKey: "selectedPet") as! String
+            let selectedSnack = UserDefaults.standard.value(forKey: "selectedSnack") as! String
+            print("\(selectedPet) - \(selectedSnack)")
+            guard let imagesForPet = imageDataSource[selectedPet] else { return }
+            images = imagesForPet[selectedSnack] ?? []
+            print(images)
+        } else if state == .reset {
+            if selectionType == .Pet {
+                images = petImages
+            } else {
+                images = snackImages
+            }
+        }
+        
         timerState = state
     }
     

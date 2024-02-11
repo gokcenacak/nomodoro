@@ -10,7 +10,7 @@ import SwiftUI
 //TODO: Timer to set itself in minutes, not seconds!
 struct CircularTimerView: View {
     
-    @Binding var timerState: TimerViewModel.TimerState
+    @Binding var timerState: TimerState
     @Binding var value: Double
         
     @State var rotationAngle = Angle(degrees: 0)
