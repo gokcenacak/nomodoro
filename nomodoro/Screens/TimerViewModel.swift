@@ -124,7 +124,7 @@ final class TimerViewModel: ObservableObject {
                                              "rabbit_ramen_5",
                                              "rabbit_ramen_6"]]]
     
-    let petImages = [PetType.hedgehog.rawValue, PetType.hedgehog.rawValue, PetType.hedgehog.rawValue, PetType.hedgehog.rawValue]
+    let petImages = [PetType.hedgehog.rawValue, PetType.fox.rawValue, PetType.penguin.rawValue, PetType.rabbit.rawValue]
     let snackImages = [SnackType.pizza.rawValue,
                        SnackType.cake.rawValue,
                        SnackType.cookie.rawValue,

@@ -15,19 +15,15 @@ enum SelectionType: String, CaseIterable, Identifiable {
 }
 
 struct TimerPage: View {
+    @EnvironmentObject var themeManager: ThemeManager
+
     @StateObject var viewModel = TimerViewModel()
-    
-    init() {
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
-        
-        UISegmentedControl.appearance().selectedSegmentTintColor = .primaryButton
-        }
     
     var body: some View {
         NavigationView {
             
             ZStack {
-                Color("backgroundColor", bundle: Bundle.main)
+                themeManager.currentTheme.backgroundColor
                 VStack(spacing: 40) {
                     Picker("", selection: $viewModel.selectionType) {
                         ForEach(SelectionType.allCases) { type in
@@ -81,20 +77,21 @@ struct TimerPage: View {
                 
             }.ignoresSafeArea().navigationTitle("")
             .toolbar {
-                Button {
-                    print("settings")
-                } label: {
+                NavigationLink(destination: SettingsPage()){
                     Image(systemName: "gearshape.fill").foregroundStyle(Color.white).dynamicTypeSize(.xxxLarge)
                 }
-
             }
+        }.tint(.white).onAppear {
+            UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
+            UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(themeManager.currentTheme.primaryButtonColor)
+        }.onReceive(themeManager.objectWillChange) {
+            UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(themeManager.currentTheme.primaryButtonColor)
         }
         
     }
 }
 
-struct TimerPage_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerPage()
-    }
+#Preview {
+
+    return TimerPage()
 }

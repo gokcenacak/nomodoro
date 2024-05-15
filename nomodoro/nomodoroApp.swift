@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct nomodoroApp: App {
+    @StateObject private var themeManager = ThemeManager(initialTheme: Theme.sodapop)
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(themeManager)
+
         }
     }
 }

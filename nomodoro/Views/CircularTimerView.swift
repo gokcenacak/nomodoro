@@ -9,7 +9,7 @@ import SwiftUI
 
 //TODO: Timer to set itself in minutes, not seconds!
 struct CircularTimerView: View {
-    
+
     @Binding var timerState: TimerState
     @Binding var value: Double
         
@@ -61,19 +61,21 @@ struct CircularTimerView: View {
 
     }
     
+    @EnvironmentObject var themeManager: ThemeManager
+
     var body: some View {
         GeometryReader { gr in
             let radius = (min(gr.size.width, gr.size.height) / 2.0) * 0.9
             VStack(spacing:0) {
                 ZStack {
                     Circle()
-                        .stroke(Color("lightOrange"),
+                        .stroke(themeManager.currentTheme.secondaryColor,
                                 style: StrokeStyle(lineWidth: 20))
                     
                     
                     Circle()
                         .trim(from: 0, to: progress)
-                        .stroke(Color("darkOrange"),
+                        .stroke(Color(themeManager.currentTheme.primaryColor),
                                 style: StrokeStyle(lineWidth: 20, lineCap: .round)
                         )
                         .rotationEffect(Angle(degrees: -90))
@@ -81,7 +83,7 @@ struct CircularTimerView: View {
                     if timerState == .reset {
                         Circle()
                             .fill(Color.white)
-                            .stroke(Color("darkOrange"),
+                            .stroke(themeManager.currentTheme.primaryColor,
                                     style: StrokeStyle(lineWidth: 5, lineCap: .round)
                             )
                             .frame(width: 40, height: 40)
@@ -96,7 +98,7 @@ struct CircularTimerView: View {
                     } else {
                         Circle()
                             .fill(Color.white)
-                            .stroke(Color("darkOrange"),
+                            .stroke(themeManager.currentTheme.primaryColor,
                                     style: StrokeStyle(lineWidth: 5, lineCap: .round)
                             )
                             .frame(width: 40, height: 40)

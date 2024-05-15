@@ -68,6 +68,8 @@
 		D3953BE72B6D5D2F00D15B7B /* SelectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BE62B6D5D2F00D15B7B /* SelectionItem.swift */; };
 		D3953BE92B6D610700D15B7B /* SelectionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BE82B6D610700D15B7B /* SelectionGroup.swift */; };
 		D3953BED2B6D672600D15B7B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BEC2B6D672600D15B7B /* PrimaryButton.swift */; };
+		E505F6A92BDC24B400D79FB6 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505F6A82BDC24B400D79FB6 /* SettingsPage.swift */; };
+		E57E74092BF5417C000598E7 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57E74082BF5417C000598E7 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,8 @@
 		D3953BE62B6D5D2F00D15B7B /* SelectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionItem.swift; sourceTree = "<group>"; };
 		D3953BE82B6D610700D15B7B /* SelectionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionGroup.swift; sourceTree = "<group>"; };
 		D3953BEC2B6D672600D15B7B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		E505F6A82BDC24B400D79FB6 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		E57E74082BF5417C000598E7 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +233,7 @@
 			children = (
 				D32BA38A2B6D6C8F00CDB911 /* TimerPage.swift */,
 				D36BF8FD2B6FA0EC00A753DA /* TimerViewModel.swift */,
+				E505F6A82BDC24B400D79FB6 /* SettingsPage.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				D3953B622B6D368F00D15B7B /* Assets.xcassets */,
 				D3953BBB2B6D460400D15B7B /* Info.plist */,
 				D3953B642B6D368F00D15B7B /* Preview Content */,
+				E57E74082BF5417C000598E7 /* ThemeManager.swift */,
 			);
 			path = nomodoro;
 			sourceTree = "<group>";
@@ -522,9 +528,11 @@
 			files = (
 				D35161C72B70EF7300722C56 /* Pet.swift in Sources */,
 				D32BA38B2B6D6C8F00CDB911 /* TimerPage.swift in Sources */,
+				E57E74092BF5417C000598E7 /* ThemeManager.swift in Sources */,
 				D3953B612B6D368A00D15B7B /* ContentView.swift in Sources */,
 				D324448D2B72C2D60067E28B /* SwiftUIGIFImage.swift in Sources */,
 				D36BF8FE2B6FA0EC00A753DA /* TimerViewModel.swift in Sources */,
+				E505F6A92BDC24B400D79FB6 /* SettingsPage.swift in Sources */,
 				D3953B5F2B6D368A00D15B7B /* nomodoroApp.swift in Sources */,
 				D35161C52B70EF5500722C56 /* Snack.swift in Sources */,
 				D36BF9002B6FE8E400A753DA /* CircularTimerView.swift in Sources */,

@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @State var showSplash: Bool = true
+    @EnvironmentObject var themeManager: ThemeManager
 
     var body: some View {
         ZStack {
-            Color("backgroundColor", bundle: Bundle.main)
+            themeManager.currentTheme.backgroundColor
             if self.showSplash {
                 SplashView()
             } else {
