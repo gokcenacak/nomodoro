@@ -142,9 +142,11 @@ struct CircularTimerView: View {
             }
             
             .onAppear {
-                value = 5 * 60
-                previousValue = 5 * 60
-                self.rotationAngle = Angle(degrees: (360.0 / maxValue) *  5.0 * 60.0)
+                if timerState == .reset {
+                    value = 5 * 60
+                    previousValue = 5 * 60
+                    self.rotationAngle = Angle(degrees: (360.0 / maxValue) *  5.0 * 60.0)
+                }
             }
         }
     }
