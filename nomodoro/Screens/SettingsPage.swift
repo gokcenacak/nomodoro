@@ -77,50 +77,68 @@ struct SettingsPage: View {
     @State private var selectedTheme: Theme = .sodapop
 
     @State var showColorPicker = false
-    init() {
+    @State private var enableNotifications = true
+    @State private var disableScreenLock = false
+    
+    @Binding var selectedDuration: Int?
+
+    init(selectedDuration: Binding<Int?>) {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        self._selectedDuration = selectedDuration
     }
     
     var body: some View {
-        ZStack {
-            themeManager.currentTheme.backgroundColor
-        
-            HStack(spacing:32) {
-                Text("Select theme color:")
-                Button(action: {
-                    showColorPicker = true
-                }) {
-                    Circle()
-                        .fill(
-                            themeManager.currentTheme.backgroundColor
-                            )
-                        .frame(width: 35, height: 35)
-                        .overlay(
-                            Circle()
-                                .stroke(Color.white, lineWidth: 3)
-                        )
-                }
-            }.padding().sheet(isPresented: $showColorPicker) {
-                VStack {
+            List {
+                NavigationLink {
+                    TimerMinuteSelectionPage(selectedDuration: $selectedDuration)
+                } label: {
                     HStack {
+                        Text("Timer Duration")
                         Spacer()
-                        Button(action: {
-                            showColorPicker = false
-                        }) {
-                            Image(systemName: "xmark.circle.fill").font(.largeTitle) .symbolRenderingMode(.hierarchical)
-                                .foregroundStyle(.gray)
-                        }.padding([.trailing],18).padding([.bottom],40)
-                            .padding([.top],18)
+                        Text("\(selectedDuration ?? 60) minutes").foregroundStyle(.gray)
                     }
-                    
-                    CustomThemePicker(themeList: themeList, selection: $selectedTheme).presentationDetents([.fraction(0.33)])
                 }
-               
-         }
-        }.ignoresSafeArea().navigationTitle("Settings")
+                
+                Toggle("Enable notifications", isOn: $enableNotifications).tint(themeManager.currentTheme.primaryButtonColor)
+                Toggle("Prevent screen lock", isOn: $disableScreenLock).tint(themeManager.currentTheme.primaryButtonColor)
+                Text("Contact us:")
+                Text("Bug report:")
+                HStack(spacing:32) {
+                    Text("Select theme color:")
+                    Button(action: {
+                        showColorPicker = true
+                    }) {
+                        Circle()
+                            .fill(
+                                themeManager.currentTheme.backgroundColor
+                                )
+                            .frame(width: 35, height: 35)
+                            .overlay(
+                                Circle()
+                                    .stroke(Color.white, lineWidth: 3)
+                            )
+                    }
+                }.padding().sheet(isPresented: $showColorPicker) {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                showColorPicker = false
+                            }) {
+                                Image(systemName: "xmark.circle.fill").font(.largeTitle) .symbolRenderingMode(.hierarchical)
+                                    .foregroundStyle(.gray)
+                            }.padding([.trailing],18).padding([.bottom],40)
+                                .padding([.top],18)
+                        }
+                        
+                        CustomThemePicker(themeList: themeList, selection: $selectedTheme).presentationDetents([.fraction(0.33)])
+                    }
+                   
+             }
+            }.scrollContentBackground(.hidden).background(themeManager.currentTheme.backgroundColor).navigationTitle("Settings").scrollDisabled(true)
     }
 }
 
 #Preview {
-    return SettingsPage()
+    return SettingsPage(selectedDuration: Binding.constant(60))
 }

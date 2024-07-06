@@ -163,8 +163,7 @@ final class TimerViewModel: ObservableObject {
     }
     @Published var currentImageUrl: String?
     @Published var isShowingAlert = (false, "")
-    
-    
+
     
     init() {
         images = petImages
@@ -187,9 +186,8 @@ final class TimerViewModel: ObservableObject {
     
     func setTimerState(_ state: TimerState) {
         if state == .active {
-            let selectedPet = UserDefaults.standard.value(forKey: "selectedPet") as! String
-            let selectedSnack = UserDefaults.standard.value(forKey: "selectedSnack") as! String
-            print("\(selectedPet) - \(selectedSnack)")
+            guard let selectedPet = UserDefaults.standard.value(forKey: "selectedPet") as? String else { return }
+            guard let selectedSnack = UserDefaults.standard.value(forKey: "selectedSnack") as? String else { return }
             guard let imagesForPet = imageDataSource[selectedPet] else { return }
             images = imagesForPet[selectedSnack] ?? []
             print(images)

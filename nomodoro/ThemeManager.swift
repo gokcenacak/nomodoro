@@ -26,16 +26,7 @@ struct Theme: Hashable, Equatable {
     }
 }
 
-//    let colorList = [Color(hex: "#FFC297"),
-//                     Color(hex: "#FF9C9D"),
-//                     Color(hex: "#FFBAEE"),
-//                     Color(hex: "#D8D3FF"),
-//                     Color(hex: "#9EE4FF"),
-//                     Color(hex: "#8AFFD6"),
-//                     Color(hex: "#ABFF90"),
-//                     Color(hex: "#F8FF99")]
 extension Theme {
-    //Orange theme
     static let `sodapop` = Self(
         backgroundColor: Color(hex: "#FFC297"),
         primaryColor: Color(hex: "#E95D3C"),
@@ -43,7 +34,6 @@ extension Theme {
         primaryButtonColor: Color(hex: "#EE7652")
     )
     
-    //Red theme
     static let `coral` = Self(
         backgroundColor: Color(hex: "#FF9C9D"),
         primaryColor: Color(hex: "#FF4C4F"),

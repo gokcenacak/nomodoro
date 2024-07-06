@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 enum SelectionType: String, CaseIterable, Identifiable {
     var id: Self { self }
@@ -18,6 +19,9 @@ struct TimerPage: View {
     @EnvironmentObject var themeManager: ThemeManager
 
     @StateObject var viewModel = TimerViewModel()
+    
+    @AppStorage("selectedDuration")
+    private var selectedDuration: Int?
     
     var body: some View {
         NavigationView {
@@ -35,7 +39,7 @@ struct TimerPage: View {
                     
                     
                     ZStack {
-                        CircularTimerView(timerState: $viewModel.timerState,value: $viewModel.timerCounter, minValue: 0, maxValue: 60 * 60).frame(width: 350, height: 350)
+                        CircularTimerView(timerState: $viewModel.timerState,value: $viewModel.timerCounter, minValue: 0, maxValue: Double((selectedDuration ?? 60) * 60)).frame(width: 350, height: 350)
                         
                         if viewModel.timerState == .reset || viewModel.timerState == .paused {
                             //TODO: Reset / pause animation - can be custom for each or not will decide
@@ -77,13 +81,21 @@ struct TimerPage: View {
                 
             }.ignoresSafeArea().navigationTitle("")
             .toolbar {
-                NavigationLink(destination: SettingsPage()){
+                NavigationLink(destination: SettingsPage(selectedDuration: $selectedDuration)){
                     Image(systemName: "gearshape.fill").foregroundStyle(Color.white).dynamicTypeSize(.xxxLarge)
                 }
             }
         }.tint(.white).onAppear {
             UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
             UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(themeManager.currentTheme.primaryButtonColor)
+            if UserDefaults.standard.value(forKey: "selectedPet") == nil {
+                // Value doesn't exist, set the default value
+                UserDefaults.standard.set("hedgehog", forKey: "selectedPet")
+            }
+            if UserDefaults.standard.value(forKey: "selectedSnack") == nil {
+                // Value doesn't exist, set the default value
+                UserDefaults.standard.set("cookie", forKey: "selectedSnack")
+            }
         }.onReceive(themeManager.objectWillChange) {
             UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(themeManager.currentTheme.primaryButtonColor)
         }

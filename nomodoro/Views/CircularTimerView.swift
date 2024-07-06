@@ -115,8 +115,10 @@ struct CircularTimerView: View {
                         } else {
                             value = 0
                             timerState = .reset
+                            scheduleNotification()
                         }
                     }
+                    
                 }
                 .onChange(of: timerState) {
                     switch timerState {
@@ -146,4 +148,22 @@ struct CircularTimerView: View {
             }
         }
     }
+    
+    func scheduleNotification() {
+       let content = UNMutableNotificationContent()
+       content.title = "Timer Ended"
+       content.body = "Your timer has finished!"
+       content.interruptionLevel = .critical
+
+       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+       let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+       UNUserNotificationCenter.current().add(request) { error in
+           if let error = error {
+               print("Error scheduling notification: \(error.localizedDescription)")
+           } else {
+               print("Notification scheduled successfully")
+           }
+       }
+   }
 }

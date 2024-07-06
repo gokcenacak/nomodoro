@@ -69,6 +69,8 @@
 		D3953BE92B6D610700D15B7B /* SelectionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BE82B6D610700D15B7B /* SelectionGroup.swift */; };
 		D3953BED2B6D672600D15B7B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3953BEC2B6D672600D15B7B /* PrimaryButton.swift */; };
 		E505F6A92BDC24B400D79FB6 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505F6A82BDC24B400D79FB6 /* SettingsPage.swift */; };
+		E511E16F2C39BFE400691EFD /* TimerMinuteSelectionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E511E16E2C39BFE400691EFD /* TimerMinuteSelectionPage.swift */; };
+		E511E1712C39D1A000691EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E511E1702C39D1A000691EFD /* AppDelegate.swift */; };
 		E57E74092BF5417C000598E7 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57E74082BF5417C000598E7 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +158,8 @@
 		D3953BE82B6D610700D15B7B /* SelectionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionGroup.swift; sourceTree = "<group>"; };
 		D3953BEC2B6D672600D15B7B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E505F6A82BDC24B400D79FB6 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		E511E16E2C39BFE400691EFD /* TimerMinuteSelectionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMinuteSelectionPage.swift; sourceTree = "<group>"; };
+		E511E1702C39D1A000691EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E57E74082BF5417C000598E7 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,6 +238,7 @@
 				D32BA38A2B6D6C8F00CDB911 /* TimerPage.swift */,
 				D36BF8FD2B6FA0EC00A753DA /* TimerViewModel.swift */,
 				E505F6A82BDC24B400D79FB6 /* SettingsPage.swift */,
+				E511E16E2C39BFE400691EFD /* TimerMinuteSelectionPage.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -279,10 +284,11 @@
 				D3953B5E2B6D368A00D15B7B /* nomodoroApp.swift */,
 				D3953B882B6D42EA00D15B7B /* SplashView.swift */,
 				D3953B602B6D368A00D15B7B /* ContentView.swift */,
+				E57E74082BF5417C000598E7 /* ThemeManager.swift */,
+				E511E1702C39D1A000691EFD /* AppDelegate.swift */,
 				D3953B622B6D368F00D15B7B /* Assets.xcassets */,
 				D3953BBB2B6D460400D15B7B /* Info.plist */,
 				D3953B642B6D368F00D15B7B /* Preview Content */,
-				E57E74082BF5417C000598E7 /* ThemeManager.swift */,
 			);
 			path = nomodoro;
 			sourceTree = "<group>";
@@ -541,6 +547,8 @@
 				D3953BED2B6D672600D15B7B /* PrimaryButton.swift in Sources */,
 				D3953BE92B6D610700D15B7B /* SelectionGroup.swift in Sources */,
 				D3953BE72B6D5D2F00D15B7B /* SelectionItem.swift in Sources */,
+				E511E1712C39D1A000691EFD /* AppDelegate.swift in Sources */,
+				E511E16F2C39BFE400691EFD /* TimerMinuteSelectionPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
