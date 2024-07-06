@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Theme: Hashable, Equatable {
+    var name: String
     var backgroundColor: Color
     var primaryColor: Color
     var secondaryColor: Color
@@ -28,6 +29,7 @@ struct Theme: Hashable, Equatable {
 
 extension Theme {
     static let `sodapop` = Self(
+        name: "Sodapop",
         backgroundColor: Color(hex: "#FFC297"),
         primaryColor: Color(hex: "#E95D3C"),
         secondaryColor: Color(hex: "#F8A179"),
@@ -35,6 +37,7 @@ extension Theme {
     )
     
     static let `coral` = Self(
+        name: "Coral",
         backgroundColor: Color(hex: "#FF9C9D"),
         primaryColor: Color(hex: "#FF4C4F"),
         secondaryColor: Color(hex: "#FF7D7E"),
@@ -42,6 +45,7 @@ extension Theme {
     )
     
     static let `bubblegum` = Self(
+        name: "Bubblegum",
         backgroundColor: Color(hex: "#FFBAEE"),
         primaryColor: Color(hex: "#FF6CD9"),
         secondaryColor: Color(hex: "#FF8FE3"),
@@ -49,6 +53,7 @@ extension Theme {
     )
     
     static let `lilac` = Self(
+        name: "Lilac",
         backgroundColor: Color(hex: "#D8D3FF"),
         primaryColor: Color(hex: "#8D7DFF"),
         secondaryColor: Color(hex: "#B5AAFF"),
@@ -56,12 +61,14 @@ extension Theme {
     )
     
     static let `sky` = Self(
+        name: "Sky",
         backgroundColor: Color(hex: "#9EE4FF"),
         primaryColor: Color(hex: "#2EC4FF"),
         secondaryColor: Color(hex: "#6AD5FF"),
         primaryButtonColor: Color(hex: "#00B7FF")
     )
     static let `aquadream` = Self(
+        name: "Aquadream",
         backgroundColor: Color(hex: "#98DDC5"),
         primaryColor: Color(hex: "#30C893"),
         secondaryColor: Color(hex: "#69D3AE"),
@@ -69,6 +76,7 @@ extension Theme {
     )
     
     static let `herby` = Self(
+        name: "Herby",
         backgroundColor: Color(hex: "#93DC7B"),
         primaryColor: Color(hex: "#4EBA2A"),
         secondaryColor: Color(hex: "#77CE5A"),
@@ -76,6 +84,7 @@ extension Theme {
     )
     
     static let `lemonade` = Self(
+        name: "Lemonade",
         backgroundColor: Color(hex: "#FFD47D"),
         primaryColor: Color(hex: "#FFB84C"),
         secondaryColor: Color(hex: "#FFC868"),

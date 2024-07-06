@@ -38,3 +38,7 @@ struct TimerMinuteSelectionPage: View {
             }
     }
 }
+
+#Preview {
+    return TimerMinuteSelectionPage(selectedDuration: Binding.constant(60))
+}

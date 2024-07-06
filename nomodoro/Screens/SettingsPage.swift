@@ -54,7 +54,7 @@ struct CustomThemePicker: View {
                         .frame(width: 50, height: 50)
                         .overlay(
                             Circle()
-                                .stroke(Color.white, lineWidth: self.selection == theme ? 3 : 0)
+                                .stroke(themeManager.currentTheme.primaryButtonColor, lineWidth: self.selection == theme ? 3 : 0)
                         )
                 }
             }
@@ -77,8 +77,7 @@ struct SettingsPage: View {
     @State private var selectedTheme: Theme = .sodapop
 
     @State var showColorPicker = false
-    @State private var enableNotifications = true
-    @State private var disableScreenLock = false
+    @State private var enableNotifications: Bool = false
     
     @Binding var selectedDuration: Int?
 
@@ -99,12 +98,22 @@ struct SettingsPage: View {
                     }
                 }
                 
-                Toggle("Enable notifications", isOn: $enableNotifications).tint(themeManager.currentTheme.primaryButtonColor)
-                Toggle("Prevent screen lock", isOn: $disableScreenLock).tint(themeManager.currentTheme.primaryButtonColor)
+                Button{
+                    openAppSettings()
+                } label: {
+                    HStack {
+                        Text("Push Notifications").foregroundStyle(.black)
+                        Spacer()
+                        Text("\(enableNotifications ? "On" : "Off")").foregroundStyle(.gray)
+                        Image(systemName: "chevron.right").font(.system(size: UIFont.systemFontSize, weight: .semibold)).opacity(0.25).foregroundStyle(.black)
+                    }
+                }
+                
                 Text("Contact us:")
                 Text("Bug report:")
-                HStack(spacing:32) {
+                HStack {
                     Text("Select theme color:")
+                    Spacer()
                     Button(action: {
                         showColorPicker = true
                     }) {
@@ -118,24 +127,48 @@ struct SettingsPage: View {
                                     .stroke(Color.white, lineWidth: 3)
                             )
                     }
-                }.padding().sheet(isPresented: $showColorPicker) {
-                    VStack {
+                }.sheet(isPresented: $showColorPicker) {
+                    VStack(spacing: 36) {
                         HStack {
                             Spacer()
                             Button(action: {
                                 showColorPicker = false
                             }) {
-                                Image(systemName: "xmark.circle.fill").font(.largeTitle) .symbolRenderingMode(.hierarchical)
+                                Image(systemName: "xmark").font(.title2) .symbolRenderingMode(.hierarchical)
                                     .foregroundStyle(.gray)
-                            }.padding([.trailing],18).padding([.bottom],40)
-                                .padding([.top],18)
+                            }
                         }
                         
                         CustomThemePicker(themeList: themeList, selection: $selectedTheme).presentationDetents([.fraction(0.33)])
-                    }
+                    }.padding()
                    
              }
-            }.scrollContentBackground(.hidden).background(themeManager.currentTheme.backgroundColor).navigationTitle("Settings").scrollDisabled(true)
+            }.scrollContentBackground(.hidden).background(themeManager.currentTheme.backgroundColor).navigationTitle("Settings").scrollDisabled(true).onAppear {
+                getNotificationPermissionResult()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                getNotificationPermissionResult()
+            }
+    }
+    
+    func openAppSettings() {
+        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(settingsURL)
+        }
+    }
+    
+    func getNotificationPermissionResult() {
+        let current = UNUserNotificationCenter.current()
+        current.getNotificationSettings(completionHandler: { permission in
+            switch permission.authorizationStatus  {
+            case .authorized:
+                enableNotifications = true
+            case .denied, .notDetermined:
+                enableNotifications = false
+            default:
+                enableNotifications = false
+            }
+        })
     }
 }
 

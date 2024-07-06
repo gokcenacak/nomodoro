@@ -41,8 +41,7 @@ struct TimerPage: View {
                     ZStack {
                         CircularTimerView(timerState: $viewModel.timerState,value: $viewModel.timerCounter, minValue: 0, maxValue: Double((selectedDuration ?? 60) * 60)).frame(width: 350, height: 350)
                         
-                        if viewModel.timerState == .reset || viewModel.timerState == .paused {
-                            //TODO: Reset / pause animation - can be custom for each or not will decide
+                        if viewModel.timerState == .reset {
                             SelectionGroup(images: $viewModel.images) { selection in
                                 if viewModel.selectionType == .Pet {
                                     UserDefaults.standard.setValue(selection, forKey: "selectedPet")
@@ -50,6 +49,9 @@ struct TimerPage: View {
                                     UserDefaults.standard.setValue(selection, forKey: "selectedSnack")
                                 }
                             }
+                        } else if viewModel.timerState == .paused {
+                            //TODO: Add a custom pause image here
+                            Image(UserDefaults.standard.value(forKey: "selectedPet") as! String).resizable().scaledToFit().frame(width: 150)
                         } else {
                             GIFImage(name:viewModel.currentImageUrl ?? viewModel.images[0]).frame(width: 220, height: 220)
                         }

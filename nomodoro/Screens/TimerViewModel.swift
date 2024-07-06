@@ -24,7 +24,8 @@ final class TimerViewModel: ObservableObject {
                                               "hedgehog_cookie_2",
                                               "hedgehog_cookie_3",
                                               "hedgehog_cookie_4",
-                                              "hedgehog_cookie_5"],
+                                              "hedgehog_cookie_5",
+                                            "hedgehog_cookie_6"],
                                 
                                 "cake" :   ["hedgehog_cake_1",
                                               "hedgehog_cake_2",
@@ -180,7 +181,6 @@ final class TimerViewModel: ObservableObject {
             }
         } else {
             self.currentImageUrl = self.images[0]
-            
         }
     }
     
@@ -190,13 +190,15 @@ final class TimerViewModel: ObservableObject {
             guard let selectedSnack = UserDefaults.standard.value(forKey: "selectedSnack") as? String else { return }
             guard let imagesForPet = imageDataSource[selectedPet] else { return }
             images = imagesForPet[selectedSnack] ?? []
-            print(images)
+            self.currentImageUrl = images[0]
         } else if state == .reset {
             if selectionType == .Pet {
                 images = petImages
             } else {
                 images = snackImages
             }
+        } else if state == .paused {
+            
         }
         
         timerState = state
